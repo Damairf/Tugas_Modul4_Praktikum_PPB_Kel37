@@ -8,27 +8,23 @@ export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredRecipes, setFilteredRecipes] = useState(semuaResep);
 
-  // State untuk pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6); // Menampilkan 6 resep per halaman
+  const [itemsPerPage] = useState(6);
 
-  // Efek untuk memfilter resep berdasarkan pencarian
   useEffect(() => {
     const lowercasedQuery = searchQuery.toLowerCase();
     const filtered = semuaResep.filter((recipe) =>
       recipe.name.toLowerCase().includes(lowercasedQuery)
     );
     setFilteredRecipes(filtered);
-    setCurrentPage(1); // Kembali ke halaman pertama setiap kali pencarian berubah
+    setCurrentPage(1);
   }, [searchQuery]);
 
-  // Logika untuk menghitung item yang akan ditampilkan di halaman saat ini
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredRecipes.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredRecipes.length / itemsPerPage);
 
-  // Fungsi untuk navigasi halaman
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -51,7 +47,6 @@ export default function MenuPage() {
           Temukan inspirasi masakan dan minuman Nusantara favoritmu.
         </p>
 
-        {/* Search Bar */}
         <div className="mb-8 max-w-lg mx-auto">
           <input
             type="text"
@@ -62,7 +57,6 @@ export default function MenuPage() {
           />
         </div>
 
-        {/* Recipe Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {currentItems.map((recipe) => (
             <Link
@@ -94,14 +88,12 @@ export default function MenuPage() {
           ))}
         </div>
 
-        {/* Pesan jika resep tidak ditemukan */}
         {filteredRecipes.length === 0 && (
           <div className="text-center py-16">
             <p className="text-slate-500">Resep tidak ditemukan.</p>
           </div>
         )}
 
-        {/* Kontrol Pagination */}
         {totalPages > 1 && (
           <div className="mt-12 flex justify-center items-center gap-4">
             <button

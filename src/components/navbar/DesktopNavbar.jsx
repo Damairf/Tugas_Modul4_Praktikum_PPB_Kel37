@@ -13,7 +13,6 @@ export default function DesktopNavbar({ currentPage, onNavigate }) {
     <nav className="hidden md:block shadow-lg border-b border-blue-100 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* 🔹 Logo */}
           <div className="flex items-center space-x-4">
             <div className="relative group">
               <img
@@ -21,7 +20,6 @@ export default function DesktopNavbar({ currentPage, onNavigate }) {
                 alt="Resep Nusantara Logo"
                 className="w-12 h-12 object-contain filter drop-shadow-md transform transition-transform duration-300 group-hover:scale-110"
               />
-              {/* Efek partikel animasi */}
               <div className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping opacity-60" />
               <div
                 className="absolute -bottom-0.5 -left-0.5 w-1 h-1 bg-blue-300 rounded-full animate-ping opacity-50"
@@ -38,7 +36,6 @@ export default function DesktopNavbar({ currentPage, onNavigate }) {
             </div>
           </div>
 
-          {/* 🔹 Navigation Links */}
           <div className="flex items-center space-x-10">
             {navItems.map((item) => (
               <button

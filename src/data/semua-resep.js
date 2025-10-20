@@ -2,7 +2,6 @@
 import { ResepMakanan } from "./makanan";
 import { ResepMinuman } from "./minuman";
 
-// Menggabungkan dan menambahkan properti 'kategori'
 const semuaMakanan = Object.values(ResepMakanan.resep).map((resep) => ({
   ...resep,
   kategori: "makanan",

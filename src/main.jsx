@@ -19,9 +19,6 @@ import MobileNavbar from "./components/navbar/MobileNavbar";
 import "./index.css";
 import PWABadge from "./PWABadge";
 
-// ===============================
-// ✅ Komponen Utama (dengan Splash)
-// ===============================
 function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [favorites, setFavorites] = useState(() => {
@@ -48,7 +45,6 @@ function App() {
     });
   };
 
-  // ✅ Tampilkan SplashScreen sebelum masuk ke Router
   if (showSplash) {
     return <SplashScreen onComplete={() => setShowSplash(false)} />;
   }
@@ -63,14 +59,10 @@ function App() {
   );
 }
 
-// ===============================
-// ✅ Komponen isi aplikasi (Router)
-// ===============================
 function AppContent({ favorites, onToggleFavorite }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Menentukan halaman aktif berdasarkan URL
   const getCurrentPage = () => {
     switch (location.pathname) {
       case "/":
@@ -88,13 +80,11 @@ function AppContent({ favorites, onToggleFavorite }) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navbar Desktop */}
       <DesktopNavbar
         currentPage={getCurrentPage()}
         onNavigate={(page) => navigate(`/${page === "home" ? "" : page}`)}
       />
 
-      {/* Konten Utama */}
       <main className="min-h-screen">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -116,7 +106,6 @@ function AppContent({ favorites, onToggleFavorite }) {
         </Routes>
       </main>
 
-      {/* Navbar Mobile */}
       <MobileNavbar
         currentPage={getCurrentPage()}
         onNavigate={(page) => navigate(`/${page === "home" ? "" : page}`)}
@@ -127,9 +116,6 @@ function AppContent({ favorites, onToggleFavorite }) {
   );
 }
 
-// ===============================
-// ✅ Render ke root
-// ===============================
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />
