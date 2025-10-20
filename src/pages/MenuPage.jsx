@@ -9,7 +9,7 @@ export default function MenuPage() {
   const [filteredRecipes, setFilteredRecipes] = useState(semuaResep);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(6);
+  const [itemsPerPage] = useState(3); // ✅ tampilkan hanya 3 resep per halaman
 
   useEffect(() => {
     const lowercasedQuery = searchQuery.toLowerCase();
@@ -39,7 +39,7 @@ export default function MenuPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-8">
-      <main className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+      <main className="max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-12">
         <h1 className="text-3xl md:text-5xl font-bold text-slate-800 text-center mb-4">
           Jelajahi Semua Resep
         </h1>
@@ -57,7 +57,7 @@ export default function MenuPage() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {currentItems.map((recipe) => (
             <Link
               to={`/resep/${recipe.kategori}/${recipe.id}`}
@@ -74,7 +74,11 @@ export default function MenuPage() {
                   </div>
                   <div className="p-4">
                     <span
-                      className={`text-xs font-semibold ${recipe.kategori === "makanan" ? "text-blue-700 bg-blue-100/90" : "text-green-700 bg-green-100/90"} px-2 py-1 rounded-full`}
+                      className={`text-xs font-semibold ${
+                        recipe.kategori === "makanan"
+                          ? "text-blue-700 bg-blue-100/90"
+                          : "text-green-700 bg-green-100/90"
+                      } px-2 py-1 rounded-full`}
                     >
                       {recipe.kategori}
                     </span>
