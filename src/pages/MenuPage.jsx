@@ -9,7 +9,7 @@ export default function MenuPage() {
   const [filteredRecipes, setFilteredRecipes] = useState(semuaResep);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(3); // ✅ tampilkan hanya 3 resep per halaman
+  const [itemsPerPage] = useState(3);
 
   useEffect(() => {
     const lowercasedQuery = searchQuery.toLowerCase();
