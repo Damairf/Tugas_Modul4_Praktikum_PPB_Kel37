@@ -43,8 +43,7 @@ export default function RecipeGrid({ recipes }) {
         Jelajahi Resep
       </h1>
       <p className="text-center text-slate-500 max-w-2xl mx-auto mb-8">
-        Temukan inspirasi resep favoritmu — dari makanan lezat hingga minuman
-        menyegarkan.
+        Temukan inspirasi resep makanan lezat
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
@@ -92,7 +91,7 @@ export default function RecipeGrid({ recipes }) {
                             : "text-green-700 bg-green-100/90"
                         }`}
                       >
-                        {isMakanan ? "Makanan" : "Minuman"}
+                        {isMakanan ? "Makanan" : "Makanan"}
                       </span>
                       <div className="flex items-center space-x-1 bg-white/90 px-2 py-1 rounded-full">
                         <Star className="w-3 h-3 md:w-4 md:h-4 text-yellow-500 fill-current" />

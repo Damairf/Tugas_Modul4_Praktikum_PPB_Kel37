@@ -3,10 +3,11 @@ import logoUrl from "../../assets/LOGORN.png";
 
 export default function DesktopNavbar({ currentPage, onNavigate }) {
   const navItems = [
-    { id: "home", label: "Beranda" },
-    { id: "menu", label: "Menu" },
-    { id: "favorites", label: "Favorit" },
-    { id: "profile", label: "Profile" },
+    { id: "home", label: "Beranda"},
+    { id: "makanan", label: "Makanan"},
+    { id: "minuman", label: "Minuman"},
+    { id: "favorites", label: "Favorit"},
+    { id: "profile", label: "Profile"},
   ];
 
   return (
